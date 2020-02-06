@@ -44,7 +44,7 @@ class BootstrapTranslator(nodes.NodeVisitor, object):
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
     ]
 
-    def __init__(self, builder, document):
+    def __init__(self, document, builder):
         super(BootstrapTranslator, self).__init__(document)
         self.builder = builder
         self.body = []
@@ -58,6 +58,7 @@ class BootstrapTranslator(nodes.NodeVisitor, object):
         self.context = []
         self.section_level = 0
 
+        self.config = self.builder.config
         self.highlightlang = self.highlightlang_base = self.builder.config.highlight_language
         self.highlightopts = getattr(builder.config, 'highlight_options', {})
 
